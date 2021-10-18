@@ -1,0 +1,3285 @@
+{
+  "contractName": "Building",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "Description",
+          "type": "string"
+        }
+      ],
+      "name": "LogNewAlert",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "Shipped",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "Delivered",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "BuildingInProgress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "Built",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Status",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"Description\",\"type\":\"string\"}],\"name\":\"LogNewAlert\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"BuildingInProgress\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"Built\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"Delivered\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"Shipped\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"Status\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/charmianho/BuildingDoc/contracts/Building.sol\":\"Building\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/charmianho/BuildingDoc/contracts/Building.sol\":{\"keccak256\":\"0x384e5ce8d96890d60fb2d1f624982c17119af30076fe3eafaec3f1156bc60dfe\",\"urls\":[\"bzz-raw://629e092bee47c8cd1b8701645ef8ff394d6e25c05b2fe047a72c65a3ac646efa\",\"dweb:/ipfs/Qmbw1y2bMELTitKuTJCSGnZLeaxnHAU33wsdmhEjwZPkMy\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008060006101000a81548160ff0219169083600481111561002f57fe5b0217905550610567806100436000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806308aeb4ab1461005c57806345f09ce914610066578063779822f7146100e95780637e59301e146100f3578063b842826c146100fd575b600080fd5b610064610107565b005b61006e610194565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100ae578082015181840152602081019050610093565b50505050905090810190601f1680156100db5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100f16101b8565b005b6100fb610245565b005b6101056102d2565b005b60036000806101000a81548160ff0219169083600481111561012557fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef56040518080602001828103825260148152602001807f4275696c64696e6720496e2050726f677265737300000000000000000000000081525060200191505060405180910390a1565b606060008060009054906101000a900460ff1690506101b28161035f565b91505090565b60026000806101000a81548160ff021916908360048111156101d657fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef56040518080602001828103825260208152602001807f546865206d6174657269616c7320686173206265656e2064656c69766572656481525060200191505060405180910390a1565b60016000806101000a81548160ff0219169083600481111561026357fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef560405180806020018281038252601e8152602001807f546865206d6174657269616c7320686173206265656e2073686970706564000081525060200191505060405180910390a1565b60046000806101000a81548160ff021916908360048111156102f057fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef56040518080602001828103825260138152602001807f54686973207061727420686173206275696c740000000000000000000000000081525060200191505060405180910390a1565b606081600481111561036d57fe5b6000600481111561037a57fe5b14156103bd576040518060400160405280600781526020017f50656e64696e6700000000000000000000000000000000000000000000000000815250905061052d565b8160048111156103c957fe5b600160048111156103d657fe5b1415610419576040518060400160405280600781526020017f5368697070656400000000000000000000000000000000000000000000000000815250905061052d565b81600481111561042557fe5b6002600481111561043257fe5b1415610475576040518060400160405280600981526020017f44656c6976657265640000000000000000000000000000000000000000000000815250905061052d565b81600481111561048157fe5b6003600481111561048e57fe5b14156104d1576040518060400160405280601281526020017f4275696c64696e67496e50726f67726573730000000000000000000000000000815250905061052d565b8160048111156104dd57fe5b6004808111156104e957fe5b141561052c576040518060400160405280600581526020017f4275696c74000000000000000000000000000000000000000000000000000000815250905061052d565b5b91905056fea265627a7a7231582001ef73012a555357aba6a0a29898666f18dc01365e4aaf842b6d8acde09b7c4b64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806308aeb4ab1461005c57806345f09ce914610066578063779822f7146100e95780637e59301e146100f3578063b842826c146100fd575b600080fd5b610064610107565b005b61006e610194565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100ae578082015181840152602081019050610093565b50505050905090810190601f1680156100db5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100f16101b8565b005b6100fb610245565b005b6101056102d2565b005b60036000806101000a81548160ff0219169083600481111561012557fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef56040518080602001828103825260148152602001807f4275696c64696e6720496e2050726f677265737300000000000000000000000081525060200191505060405180910390a1565b606060008060009054906101000a900460ff1690506101b28161035f565b91505090565b60026000806101000a81548160ff021916908360048111156101d657fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef56040518080602001828103825260208152602001807f546865206d6174657269616c7320686173206265656e2064656c69766572656481525060200191505060405180910390a1565b60016000806101000a81548160ff0219169083600481111561026357fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef560405180806020018281038252601e8152602001807f546865206d6174657269616c7320686173206265656e2073686970706564000081525060200191505060405180910390a1565b60046000806101000a81548160ff021916908360048111156102f057fe5b02179055507fca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef56040518080602001828103825260138152602001807f54686973207061727420686173206275696c740000000000000000000000000081525060200191505060405180910390a1565b606081600481111561036d57fe5b6000600481111561037a57fe5b14156103bd576040518060400160405280600781526020017f50656e64696e6700000000000000000000000000000000000000000000000000815250905061052d565b8160048111156103c957fe5b600160048111156103d657fe5b1415610419576040518060400160405280600781526020017f5368697070656400000000000000000000000000000000000000000000000000815250905061052d565b81600481111561042557fe5b6002600481111561043257fe5b1415610475576040518060400160405280600981526020017f44656c6976657265640000000000000000000000000000000000000000000000815250905061052d565b81600481111561048157fe5b6003600481111561048e57fe5b14156104d1576040518060400160405280601281526020017f4275696c64696e67496e50726f67726573730000000000000000000000000000815250905061052d565b8160048111156104dd57fe5b6004808111156104e957fe5b141561052c576040518060400160405280600581526020017f4275696c74000000000000000000000000000000000000000000000000000000815250905061052d565b5b91905056fea265627a7a7231582001ef73012a555357aba6a0a29898666f18dc01365e4aaf842b6d8acde09b7c4b64736f6c63430005100032",
+  "sourceMap": "66:1391:0:-;;;251:68;8:9:-1;5:2;;;30:1;27;20:12;5:2;251:68:0;290:22;281:6;;:31;;;;;;;;;;;;;;;;;;;;;;;;66:1391;;;;;;",
+  "deployedSourceMap": "66:1391:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:1391:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;609:145;;;:::i;:::-;;1318:136;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1318:136:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;464:139;;;:::i;:::-;;325:133;;;:::i;:::-;;760:118;;;:::i;:::-;;609:145;664:33;655:6;;:42;;;;;;;;;;;;;;;;;;;;;;;;712:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;609:145::o;1318:136::-;1357:13;1381:22;1406:6;;;;;;;;;;;1381:31;;1429:18;1439:7;1429:9;:18::i;:::-;1422:25;;;1318:136;:::o;464:139::-;510:24;501:6;;:33;;;;;;;;;;;;;;;;;;;;;;;;549:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;464:139::o;325:133::-;369:22;360:6;;:31;;;;;;;;;;;;;;;;;;;;;;;;406:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;325:133::o;760:118::-;802:20;793:6;;:29;;;;;;;;;;;;;;;;;;;;;;;;837:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;760:118::o;884:428::-;949:13;1002:7;976:33;;;;;;;;:22;:33;;;;;;;;;973:54;;;1011:16;;;;;;;;;;;;;;;;;;;;;973:54;1066:7;1040:33;;;;;;;;:22;:33;;;;;;;;;1037:54;;;1075:16;;;;;;;;;;;;;;;;;;;;;1037:54;1132:7;1104:35;;;;;;;;:24;:35;;;;;;;;;1101:58;;;1141:18;;;;;;;;;;;;;;;;;;;;;1101:58;1209:7;1172:44;;;;;;;;:33;:44;;;;;;;;;1169:76;;;1218:27;;;;;;;;;;;;;;;;;;;;;1169:76;1282:7;1258:31;;;;;;;;:20;:31;;;;;;;;;1255:50;;;1291:14;;;;;;;;;;;;;;;;;;;;;1255:50;884:428;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.8.0;\n\ncontract Building{\n\n    enum BuildingStatus {Pending, Shipped, Delivered, BuildingInProgress, Built}\n\n    BuildingStatus private status;\n    event LogNewAlert(string Description);\n\n    constructor() public{\n        status = BuildingStatus.Pending;\n    }\n\n    function Shipped() public{\n        status = BuildingStatus.Shipped;\n        emit LogNewAlert(\"The materials has been shipped\");\n    }\n\n    function Delivered() public{\n        status = BuildingStatus.Delivered;\n        emit LogNewAlert(\"The materials has been delivered\");\n    }\n\n    function BuildingInProgress() public{\n        status = BuildingStatus.BuildingInProgress;\n        emit LogNewAlert(\"Building In Progress\");\n    }\n\n    function Built() public{\n        status = BuildingStatus.Built;\n        emit LogNewAlert(\"This part has built\");\n    }\n\n    function getStatus(BuildingStatus _status) internal pure returns(string memory){\n        if(BuildingStatus.Pending == _status) return \"Pending\";\n        if(BuildingStatus.Shipped == _status) return \"Shipped\";\n        if(BuildingStatus.Delivered == _status) return \"Delivered\";\n        if(BuildingStatus.BuildingInProgress == _status) return \"BuildingInProgress\";\n        if(BuildingStatus.Built == _status) return \"Built\";\n    }\n\n    function Status() public view returns (string memory){\n        BuildingStatus _status = status;\n        return getStatus(_status);\n    } \n}",
+  "sourcePath": "/Users/charmianho/BuildingDoc/contracts/Building.sol",
+  "ast": {
+    "absolutePath": "/Users/charmianho/BuildingDoc/contracts/Building.sol",
+    "exportedSymbols": {
+      "Building": [
+        132
+      ]
+    },
+    "id": 133,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 132,
+        "linearizedBaseContracts": [
+          132
+        ],
+        "name": "Building",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Building.BuildingStatus",
+            "id": 7,
+            "members": [
+              {
+                "id": 2,
+                "name": "Pending",
+                "nodeType": "EnumValue",
+                "src": "111:7:0"
+              },
+              {
+                "id": 3,
+                "name": "Shipped",
+                "nodeType": "EnumValue",
+                "src": "120:7:0"
+              },
+              {
+                "id": 4,
+                "name": "Delivered",
+                "nodeType": "EnumValue",
+                "src": "129:9:0"
+              },
+              {
+                "id": 5,
+                "name": "BuildingInProgress",
+                "nodeType": "EnumValue",
+                "src": "140:18:0"
+              },
+              {
+                "id": 6,
+                "name": "Built",
+                "nodeType": "EnumValue",
+                "src": "160:5:0"
+              }
+            ],
+            "name": "BuildingStatus",
+            "nodeType": "EnumDefinition",
+            "src": "90:76:0"
+          },
+          {
+            "constant": false,
+            "id": 9,
+            "name": "status",
+            "nodeType": "VariableDeclaration",
+            "scope": 132,
+            "src": "172:29:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_BuildingStatus_$7",
+              "typeString": "enum Building.BuildingStatus"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 8,
+              "name": "BuildingStatus",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7,
+              "src": "172:14:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                "typeString": "enum Building.BuildingStatus"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 13,
+            "name": "LogNewAlert",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 12,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11,
+                  "indexed": false,
+                  "name": "Description",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13,
+                  "src": "225:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 10,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "225:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "224:20:0"
+            },
+            "src": "207:38:0"
+          },
+          {
+            "body": {
+              "id": 21,
+              "nodeType": "Block",
+              "src": "271:48:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 19,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 16,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "281:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 17,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "290:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 18,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Pending",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "290:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "281:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 20,
+                  "nodeType": "ExpressionStatement",
+                  "src": "281:31:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 22,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "262:2:0"
+            },
+            "returnParameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "271:0:0"
+            },
+            "scope": 132,
+            "src": "251:68:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 34,
+              "nodeType": "Block",
+              "src": "350:108:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 28,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 25,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "360:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 26,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "369:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 27,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Shipped",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "369:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "360:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 29,
+                  "nodeType": "ExpressionStatement",
+                  "src": "360:31:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "546865206d6174657269616c7320686173206265656e2073686970706564",
+                        "id": 31,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "418:32:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_7048f988ead85dd76fa2b167e31d99c1cb4041bd7d7a249d1007e244af7cee97",
+                          "typeString": "literal_string \"The materials has been shipped\""
+                        },
+                        "value": "The materials has been shipped"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_7048f988ead85dd76fa2b167e31d99c1cb4041bd7d7a249d1007e244af7cee97",
+                          "typeString": "literal_string \"The materials has been shipped\""
+                        }
+                      ],
+                      "id": 30,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "406:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 32,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "406:45:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 33,
+                  "nodeType": "EmitStatement",
+                  "src": "401:50:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 35,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Shipped",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 23,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "341:2:0"
+            },
+            "returnParameters": {
+              "id": 24,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "350:0:0"
+            },
+            "scope": 132,
+            "src": "325:133:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "491:112:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 41,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 38,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "501:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 39,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "510:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 40,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Delivered",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "510:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "501:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 42,
+                  "nodeType": "ExpressionStatement",
+                  "src": "501:33:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "546865206d6174657269616c7320686173206265656e2064656c697665726564",
+                        "id": 44,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "561:34:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_a6957dbdf40352ac420012587f89a7c62ef2b4c80b3f988e8c06f5bf796d72cc",
+                          "typeString": "literal_string \"The materials has been delivered\""
+                        },
+                        "value": "The materials has been delivered"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_a6957dbdf40352ac420012587f89a7c62ef2b4c80b3f988e8c06f5bf796d72cc",
+                          "typeString": "literal_string \"The materials has been delivered\""
+                        }
+                      ],
+                      "id": 43,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "549:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 45,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "549:47:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 46,
+                  "nodeType": "EmitStatement",
+                  "src": "544:52:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 48,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Delivered",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 36,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "482:2:0"
+            },
+            "returnParameters": {
+              "id": 37,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "491:0:0"
+            },
+            "scope": 132,
+            "src": "464:139:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 60,
+              "nodeType": "Block",
+              "src": "645:109:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 54,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 51,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "655:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 52,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "664:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 53,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "BuildingInProgress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "664:33:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "655:42:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 55,
+                  "nodeType": "ExpressionStatement",
+                  "src": "655:42:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4275696c64696e6720496e2050726f6772657373",
+                        "id": 57,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "724:22:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_e55cd018fe19b25dfbe194f031cc51f171323c4acf4033c187e313dd4a5d02cd",
+                          "typeString": "literal_string \"Building In Progress\""
+                        },
+                        "value": "Building In Progress"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_e55cd018fe19b25dfbe194f031cc51f171323c4acf4033c187e313dd4a5d02cd",
+                          "typeString": "literal_string \"Building In Progress\""
+                        }
+                      ],
+                      "id": 56,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "712:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 58,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "712:35:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 59,
+                  "nodeType": "EmitStatement",
+                  "src": "707:40:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 61,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "BuildingInProgress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "636:2:0"
+            },
+            "returnParameters": {
+              "id": 50,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "645:0:0"
+            },
+            "scope": 132,
+            "src": "609:145:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 73,
+              "nodeType": "Block",
+              "src": "783:95:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 67,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "793:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 65,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "802:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 66,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Built",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "802:20:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "793:29:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 68,
+                  "nodeType": "ExpressionStatement",
+                  "src": "793:29:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "54686973207061727420686173206275696c74",
+                        "id": 70,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "849:21:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_fdd89046aaba97ba5903ef16c7486ed5794b0a908af1ac012d3d4aceb35c606c",
+                          "typeString": "literal_string \"This part has built\""
+                        },
+                        "value": "This part has built"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_fdd89046aaba97ba5903ef16c7486ed5794b0a908af1ac012d3d4aceb35c606c",
+                          "typeString": "literal_string \"This part has built\""
+                        }
+                      ],
+                      "id": 69,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "837:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 71,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "837:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 72,
+                  "nodeType": "EmitStatement",
+                  "src": "832:39:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 74,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Built",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "774:2:0"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "783:0:0"
+            },
+            "scope": 132,
+            "src": "760:118:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 116,
+              "nodeType": "Block",
+              "src": "963:349:0",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 84,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 81,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "976:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 82,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Pending",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "976:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 83,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1002:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "976:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 87,
+                  "nodeType": "IfStatement",
+                  "src": "973:54:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "50656e64696e67",
+                      "id": 85,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1018:9:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_4be840e351422c3b302abb79aa7db05560ead7e387e413320822a342fca3f54e",
+                        "typeString": "literal_string \"Pending\""
+                      },
+                      "value": "Pending"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 86,
+                    "nodeType": "Return",
+                    "src": "1011:16:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 91,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 88,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1040:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Shipped",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1040:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 90,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1066:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1040:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 94,
+                  "nodeType": "IfStatement",
+                  "src": "1037:54:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "53686970706564",
+                      "id": 92,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1082:9:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_ea8c21351dfe8c1ee7c9c97b7a7f4f3470464497a9a7c2d3167590f4716cbe75",
+                        "typeString": "literal_string \"Shipped\""
+                      },
+                      "value": "Shipped"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 93,
+                    "nodeType": "Return",
+                    "src": "1075:16:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 98,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 95,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1104:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 96,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Delivered",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1104:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 97,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1132:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1104:35:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 101,
+                  "nodeType": "IfStatement",
+                  "src": "1101:58:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "44656c697665726564",
+                      "id": 99,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1148:11:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_84d438931365e92021ed104a3ccc6ebb11094926f21ebfcbd81ad9746006c510",
+                        "typeString": "literal_string \"Delivered\""
+                      },
+                      "value": "Delivered"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 100,
+                    "nodeType": "Return",
+                    "src": "1141:18:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 102,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1172:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 103,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "BuildingInProgress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1172:33:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 104,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1209:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1172:44:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 108,
+                  "nodeType": "IfStatement",
+                  "src": "1169:76:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "4275696c64696e67496e50726f6772657373",
+                      "id": 106,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1225:20:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_878b70e1f4cf1dc81649251f9b8c2ca240e8be82eb5ad714dfef4f5b6202833a",
+                        "typeString": "literal_string \"BuildingInProgress\""
+                      },
+                      "value": "BuildingInProgress"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 107,
+                    "nodeType": "Return",
+                    "src": "1218:27:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 112,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 109,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1258:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 110,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Built",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1258:20:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 111,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1282:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1258:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 115,
+                  "nodeType": "IfStatement",
+                  "src": "1255:50:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "4275696c74",
+                      "id": 113,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1298:7:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_65d45258cfbc6a05a3a95aca416a9a9870a252afc3323a488c5e49221d6bad6f",
+                        "typeString": "literal_string \"Built\""
+                      },
+                      "value": "Built"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 114,
+                    "nodeType": "Return",
+                    "src": "1291:14:0"
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 117,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 76,
+                  "name": "_status",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "903:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                    "typeString": "enum Building.BuildingStatus"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 75,
+                    "name": "BuildingStatus",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7,
+                    "src": "903:14:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "902:24:0"
+            },
+            "returnParameters": {
+              "id": 80,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 79,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "949:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "949:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "948:15:0"
+            },
+            "scope": 132,
+            "src": "884:428:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 130,
+              "nodeType": "Block",
+              "src": "1371:83:0",
+              "statements": [
+                {
+                  "assignments": [
+                    123
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 123,
+                      "name": "_status",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 130,
+                      "src": "1381:22:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 122,
+                        "name": "BuildingStatus",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 7,
+                        "src": "1381:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                          "typeString": "enum Building.BuildingStatus"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 125,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "id": 124,
+                    "name": "status",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 9,
+                    "src": "1406:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1381:31:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 127,
+                        "name": "_status",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 123,
+                        "src": "1439:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                          "typeString": "enum Building.BuildingStatus"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                          "typeString": "enum Building.BuildingStatus"
+                        }
+                      ],
+                      "id": 126,
+                      "name": "getStatus",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 117,
+                      "src": "1429:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_enum$_BuildingStatus_$7_$returns$_t_string_memory_ptr_$",
+                        "typeString": "function (enum Building.BuildingStatus) pure returns (string memory)"
+                      }
+                    },
+                    "id": 128,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1429:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "functionReturnParameters": 121,
+                  "id": 129,
+                  "nodeType": "Return",
+                  "src": "1422:25:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 131,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Status",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 118,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1333:2:0"
+            },
+            "returnParameters": {
+              "id": 121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 131,
+                  "src": "1357:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1357:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1356:15:0"
+            },
+            "scope": 132,
+            "src": "1318:136:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 133,
+        "src": "66:1391:0"
+      }
+    ],
+    "src": "32:1425:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/charmianho/BuildingDoc/contracts/Building.sol",
+    "exportedSymbols": {
+      "Building": [
+        132
+      ]
+    },
+    "id": 133,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 132,
+        "linearizedBaseContracts": [
+          132
+        ],
+        "name": "Building",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Building.BuildingStatus",
+            "id": 7,
+            "members": [
+              {
+                "id": 2,
+                "name": "Pending",
+                "nodeType": "EnumValue",
+                "src": "111:7:0"
+              },
+              {
+                "id": 3,
+                "name": "Shipped",
+                "nodeType": "EnumValue",
+                "src": "120:7:0"
+              },
+              {
+                "id": 4,
+                "name": "Delivered",
+                "nodeType": "EnumValue",
+                "src": "129:9:0"
+              },
+              {
+                "id": 5,
+                "name": "BuildingInProgress",
+                "nodeType": "EnumValue",
+                "src": "140:18:0"
+              },
+              {
+                "id": 6,
+                "name": "Built",
+                "nodeType": "EnumValue",
+                "src": "160:5:0"
+              }
+            ],
+            "name": "BuildingStatus",
+            "nodeType": "EnumDefinition",
+            "src": "90:76:0"
+          },
+          {
+            "constant": false,
+            "id": 9,
+            "name": "status",
+            "nodeType": "VariableDeclaration",
+            "scope": 132,
+            "src": "172:29:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_BuildingStatus_$7",
+              "typeString": "enum Building.BuildingStatus"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 8,
+              "name": "BuildingStatus",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7,
+              "src": "172:14:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                "typeString": "enum Building.BuildingStatus"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 13,
+            "name": "LogNewAlert",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 12,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11,
+                  "indexed": false,
+                  "name": "Description",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13,
+                  "src": "225:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 10,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "225:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "224:20:0"
+            },
+            "src": "207:38:0"
+          },
+          {
+            "body": {
+              "id": 21,
+              "nodeType": "Block",
+              "src": "271:48:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 19,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 16,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "281:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 17,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "290:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 18,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Pending",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "290:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "281:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 20,
+                  "nodeType": "ExpressionStatement",
+                  "src": "281:31:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 22,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "262:2:0"
+            },
+            "returnParameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "271:0:0"
+            },
+            "scope": 132,
+            "src": "251:68:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 34,
+              "nodeType": "Block",
+              "src": "350:108:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 28,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 25,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "360:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 26,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "369:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 27,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Shipped",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "369:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "360:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 29,
+                  "nodeType": "ExpressionStatement",
+                  "src": "360:31:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "546865206d6174657269616c7320686173206265656e2073686970706564",
+                        "id": 31,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "418:32:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_7048f988ead85dd76fa2b167e31d99c1cb4041bd7d7a249d1007e244af7cee97",
+                          "typeString": "literal_string \"The materials has been shipped\""
+                        },
+                        "value": "The materials has been shipped"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_7048f988ead85dd76fa2b167e31d99c1cb4041bd7d7a249d1007e244af7cee97",
+                          "typeString": "literal_string \"The materials has been shipped\""
+                        }
+                      ],
+                      "id": 30,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "406:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 32,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "406:45:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 33,
+                  "nodeType": "EmitStatement",
+                  "src": "401:50:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 35,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Shipped",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 23,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "341:2:0"
+            },
+            "returnParameters": {
+              "id": 24,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "350:0:0"
+            },
+            "scope": 132,
+            "src": "325:133:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "491:112:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 41,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 38,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "501:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 39,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "510:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 40,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Delivered",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "510:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "501:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 42,
+                  "nodeType": "ExpressionStatement",
+                  "src": "501:33:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "546865206d6174657269616c7320686173206265656e2064656c697665726564",
+                        "id": 44,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "561:34:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_a6957dbdf40352ac420012587f89a7c62ef2b4c80b3f988e8c06f5bf796d72cc",
+                          "typeString": "literal_string \"The materials has been delivered\""
+                        },
+                        "value": "The materials has been delivered"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_a6957dbdf40352ac420012587f89a7c62ef2b4c80b3f988e8c06f5bf796d72cc",
+                          "typeString": "literal_string \"The materials has been delivered\""
+                        }
+                      ],
+                      "id": 43,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "549:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 45,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "549:47:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 46,
+                  "nodeType": "EmitStatement",
+                  "src": "544:52:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 48,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Delivered",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 36,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "482:2:0"
+            },
+            "returnParameters": {
+              "id": 37,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "491:0:0"
+            },
+            "scope": 132,
+            "src": "464:139:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 60,
+              "nodeType": "Block",
+              "src": "645:109:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 54,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 51,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "655:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 52,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "664:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 53,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "BuildingInProgress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "664:33:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "655:42:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 55,
+                  "nodeType": "ExpressionStatement",
+                  "src": "655:42:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4275696c64696e6720496e2050726f6772657373",
+                        "id": 57,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "724:22:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_e55cd018fe19b25dfbe194f031cc51f171323c4acf4033c187e313dd4a5d02cd",
+                          "typeString": "literal_string \"Building In Progress\""
+                        },
+                        "value": "Building In Progress"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_e55cd018fe19b25dfbe194f031cc51f171323c4acf4033c187e313dd4a5d02cd",
+                          "typeString": "literal_string \"Building In Progress\""
+                        }
+                      ],
+                      "id": 56,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "712:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 58,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "712:35:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 59,
+                  "nodeType": "EmitStatement",
+                  "src": "707:40:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 61,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "BuildingInProgress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "636:2:0"
+            },
+            "returnParameters": {
+              "id": 50,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "645:0:0"
+            },
+            "scope": 132,
+            "src": "609:145:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 73,
+              "nodeType": "Block",
+              "src": "783:95:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 67,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9,
+                      "src": "793:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 65,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "802:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 66,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Built",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "802:20:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "793:29:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "id": 68,
+                  "nodeType": "ExpressionStatement",
+                  "src": "793:29:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "54686973207061727420686173206275696c74",
+                        "id": 70,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "849:21:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_fdd89046aaba97ba5903ef16c7486ed5794b0a908af1ac012d3d4aceb35c606c",
+                          "typeString": "literal_string \"This part has built\""
+                        },
+                        "value": "This part has built"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_fdd89046aaba97ba5903ef16c7486ed5794b0a908af1ac012d3d4aceb35c606c",
+                          "typeString": "literal_string \"This part has built\""
+                        }
+                      ],
+                      "id": 69,
+                      "name": "LogNewAlert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "837:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory)"
+                      }
+                    },
+                    "id": 71,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "837:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 72,
+                  "nodeType": "EmitStatement",
+                  "src": "832:39:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 74,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Built",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "774:2:0"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "783:0:0"
+            },
+            "scope": 132,
+            "src": "760:118:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 116,
+              "nodeType": "Block",
+              "src": "963:349:0",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 84,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 81,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "976:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 82,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Pending",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "976:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 83,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1002:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "976:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 87,
+                  "nodeType": "IfStatement",
+                  "src": "973:54:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "50656e64696e67",
+                      "id": 85,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1018:9:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_4be840e351422c3b302abb79aa7db05560ead7e387e413320822a342fca3f54e",
+                        "typeString": "literal_string \"Pending\""
+                      },
+                      "value": "Pending"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 86,
+                    "nodeType": "Return",
+                    "src": "1011:16:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 91,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 88,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1040:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 89,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Shipped",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1040:22:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 90,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1066:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1040:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 94,
+                  "nodeType": "IfStatement",
+                  "src": "1037:54:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "53686970706564",
+                      "id": 92,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1082:9:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_ea8c21351dfe8c1ee7c9c97b7a7f4f3470464497a9a7c2d3167590f4716cbe75",
+                        "typeString": "literal_string \"Shipped\""
+                      },
+                      "value": "Shipped"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 93,
+                    "nodeType": "Return",
+                    "src": "1075:16:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 98,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 95,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1104:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 96,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Delivered",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1104:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 97,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1132:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1104:35:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 101,
+                  "nodeType": "IfStatement",
+                  "src": "1101:58:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "44656c697665726564",
+                      "id": 99,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1148:11:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_84d438931365e92021ed104a3ccc6ebb11094926f21ebfcbd81ad9746006c510",
+                        "typeString": "literal_string \"Delivered\""
+                      },
+                      "value": "Delivered"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 100,
+                    "nodeType": "Return",
+                    "src": "1141:18:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 102,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1172:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 103,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "BuildingInProgress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1172:33:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 104,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1209:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1172:44:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 108,
+                  "nodeType": "IfStatement",
+                  "src": "1169:76:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "4275696c64696e67496e50726f6772657373",
+                      "id": 106,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1225:20:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_878b70e1f4cf1dc81649251f9b8c2ca240e8be82eb5ad714dfef4f5b6202833a",
+                        "typeString": "literal_string \"BuildingInProgress\""
+                      },
+                      "value": "BuildingInProgress"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 107,
+                    "nodeType": "Return",
+                    "src": "1218:27:0"
+                  }
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    },
+                    "id": 112,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 109,
+                        "name": "BuildingStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "1258:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BuildingStatus_$7_$",
+                          "typeString": "type(enum Building.BuildingStatus)"
+                        }
+                      },
+                      "id": 110,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Built",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1258:20:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 111,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 76,
+                      "src": "1282:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      }
+                    },
+                    "src": "1258:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 115,
+                  "nodeType": "IfStatement",
+                  "src": "1255:50:0",
+                  "trueBody": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "hexValue": "4275696c74",
+                      "id": 113,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "string",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1298:7:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_stringliteral_65d45258cfbc6a05a3a95aca416a9a9870a252afc3323a488c5e49221d6bad6f",
+                        "typeString": "literal_string \"Built\""
+                      },
+                      "value": "Built"
+                    },
+                    "functionReturnParameters": 80,
+                    "id": 114,
+                    "nodeType": "Return",
+                    "src": "1291:14:0"
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 117,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 76,
+                  "name": "_status",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "903:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                    "typeString": "enum Building.BuildingStatus"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 75,
+                    "name": "BuildingStatus",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7,
+                    "src": "903:14:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "902:24:0"
+            },
+            "returnParameters": {
+              "id": 80,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 79,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "949:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "949:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "948:15:0"
+            },
+            "scope": 132,
+            "src": "884:428:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 130,
+              "nodeType": "Block",
+              "src": "1371:83:0",
+              "statements": [
+                {
+                  "assignments": [
+                    123
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 123,
+                      "name": "_status",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 130,
+                      "src": "1381:22:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                        "typeString": "enum Building.BuildingStatus"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 122,
+                        "name": "BuildingStatus",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 7,
+                        "src": "1381:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                          "typeString": "enum Building.BuildingStatus"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 125,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "id": 124,
+                    "name": "status",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 9,
+                    "src": "1406:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                      "typeString": "enum Building.BuildingStatus"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1381:31:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 127,
+                        "name": "_status",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 123,
+                        "src": "1439:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                          "typeString": "enum Building.BuildingStatus"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_enum$_BuildingStatus_$7",
+                          "typeString": "enum Building.BuildingStatus"
+                        }
+                      ],
+                      "id": 126,
+                      "name": "getStatus",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 117,
+                      "src": "1429:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_enum$_BuildingStatus_$7_$returns$_t_string_memory_ptr_$",
+                        "typeString": "function (enum Building.BuildingStatus) pure returns (string memory)"
+                      }
+                    },
+                    "id": 128,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1429:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "functionReturnParameters": 121,
+                  "id": 129,
+                  "nodeType": "Return",
+                  "src": "1422:25:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 131,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Status",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 118,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1333:2:0"
+            },
+            "returnParameters": {
+              "id": 121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 131,
+                  "src": "1357:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1357:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1356:15:0"
+            },
+            "scope": 132,
+            "src": "1318:136:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 133,
+        "src": "66:1391:0"
+      }
+    ],
+    "src": "32:1425:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "1634488835854": {
+      "events": {
+        "0xca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "Description",
+              "type": "string"
+            }
+          ],
+          "name": "LogNewAlert",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xdbDb3Be62Fd351899A29bC8332B4865523de6a07",
+      "transactionHash": "0x8851eb201bc78e83112ff8676e716471e3ec3e6a3de64101a6a2fcf8a012f5a4"
+    },
+    "1634490746554": {
+      "events": {
+        "0xca75c80642b93c980135b8355995abae3ab06033dc81f956b3824323b4903ef5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "Description",
+              "type": "string"
+            }
+          ],
+          "name": "LogNewAlert",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x0BAADa008A645f2a0eD8d6D56b1121C185eEdE66",
+      "transactionHash": "0xac40389a52587095133c8fa18bd163103b47776021d3dc7f1016ff3312df6e6e"
+    }
+  },
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-10-17T17:15:55.687Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
